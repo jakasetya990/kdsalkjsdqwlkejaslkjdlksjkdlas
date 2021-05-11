@@ -1,0 +1,133 @@
+<title>bgibola</title>
+<meta name="robots" content="noindex" />
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-100565739-31"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clappr/0.4.0/clappr.min.js"></script>
+<script src="https://cdn.statically.io/gh/clappr/dash-shaka-playback/7dae1b5a/dist/dash-shaka-playback.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flv.js@latest/dist/flv.min.js"></script>
+<script src="https://cdn.statically.io/gh/andrefilimono/clappr-flvjs-playback/377bd2be/dist/clappr-flvjs-playback.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script
+  type="text/javascript"
+  src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"
+></script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: none repeat scroll 0 0 #000;
+    margin: 0;
+  }
+
+  .container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ads_code {
+    width: fit-content;
+    margin: 10px auto;
+    z-index: 1001;
+  }
+
+  .ads_code > a > img {
+    width: 100%;
+  }
+
+  span.icon-cancel-circled:hover {
+    color: red;
+  }
+
+  span.icon-cancel-circled {
+    background: rgba(34, 34, 34, 0.62);
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    padding: 5px;
+    margin: auto;
+    font-weight: bolder;
+  }
+
+  span.icon-cancel-circled:before {
+    content: " ";
+    display: block;
+    background-color: #fff;
+  }
+
+  #ads_overlay {
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+  }
+
+  #ads_overlay .btn-paused {
+    display: none !important;
+  }
+
+  #ads_overlay {
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+  }
+
+  #ads_overlay {
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+  }
+
+  #ads_overlay button {
+    border: none;
+    position: relative;
+    cursor: pointer;
+    background: 0 0;
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    outline: 0;
+    margin-left: 50%;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <div id="player"></div>
+    <div id="ads_overlay">
+      <button onclick="myClosebtn()">
+        <span class="icon-cancel-circled">X</span>
+      </button>
+      <div class="ads_code" id="ads_code"></div>
+    </div>
+  </div>
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-100565739-31"
+  ></script>
+  <script>
+    var domain = "bgibola.org";
+  </script>
+  <script async src="/playerx.min.js"></script>
+</body>
