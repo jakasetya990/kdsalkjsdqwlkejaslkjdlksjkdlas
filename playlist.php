@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 header("content-type: application/vnd.apple.mpegurl");
 //header("Content-Disposition: attachment; filename=playlist_".$_GET['streamid'].".m3u8");
 $str = "https://edge2.xmediaget.com:8443/xrecord?id=" . $_GET['streamid'];
