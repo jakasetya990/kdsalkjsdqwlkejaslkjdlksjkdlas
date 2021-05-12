@@ -1,0 +1,518 @@
+https://mobilaservers.com/getZone/web_nz/index_android.html
+/LiveFeed/EndGameAdvice
+
+
+ @GET("LiveFeed/Mb_GameResults")
+    Observable<d<List<JsonObject>, b>> getLiveResults(@QueryMap Map<String, Object> map);
+
+    @POST("MobileOpen/Mobile_GameResults")
+    Observable<e0> getResults(@Body ViewGameRequest viewGameRequest);
+ @GET("/MobileOpen/GetAdvisedOpps")
+    Observable<List<PopularSearchResponse>> getPopularSearch(@Query("lng") String str, @Query("partner") Integer num, @Query("country") Integer num2);
+
+    @GET("{eventType}Feed/Mb_SearchZip")
+    Observable<d<List<JsonObject>, b>> searchEvents(@Path("eventType") String str, @QueryMap Map<String, Object> map);
+
+
+
+
+    @GET("/subscriptionservice/api/v2/subs/GetGameSubscriptions")
+    Observable<C1680o> userSubscriptions(@Header("Authorization") String str);
+
+
+ @GET("{BetType}Feed/Mb_BestGamesExtZip")
+    Observable<d<List<JsonObject>, b>> getTopGamesZip(@Path("BetType") String str, @QueryMap Map<String, Object> map);
+
+
+/TvGamesRestDbService.svc/actions/GetJackpotWinsForPeriod
+
+
+
+
+
+
+===post===
+@POST("/subscriptionservice/api/v2/subs/DeleteGamesSubscriptions")
+    Observable<Boolean> deleteGames(@Header("Authorization") String str, @Body SubscriptionsServiceEntities aVar);
+
+    @POST("/subscriptionservice/api/v2/subs/GetGameSubscriptionSettings")
+    Observable<C1663d> gameSubscriptionSettings(@Header("Authorization") String str, @Body C1662c cVar);
+
+    @POST("/subscriptionservice/api/v2/subs/SaveUserReaction")
+    Observable<Boolean> saveUserReaction(@Header("Authorization") String str, @Body C1667e eVar);
+
+    @POST("/subscriptionservice/api/v2/subs/AddBetSubscription")
+    x<Boolean> subscribeOnBetResult(@Header("Authorization") String str, @Body C1668f fVar);
+
+    @POST("/subscriptionservice/api/v2/subs/AddGameSubscription")
+    Observable<Boolean> subscribeToGame(@Header("Authorization") String str, @Body C1669g gVar);
+
+    @POST("/subscriptionservice/api/v2/info/GetGameSubscriptionOptions")
+    Observable<C1675m> subscriptions(@Body C1674l lVar);
+
+    @POST("/subscriptionservice/api/v2/subs/UpdateUserData")
+    Observable<Boolean> updateUserData(@Header("Authorization") String str, @Body C1679n nVar);
+
+    @GET("/subscriptionservice/api/v2/subs/GetGameSubscriptions")
+    Observable<C1680o> userSubscriptions(@Header("Authorization") String str);
+
+
+
+
+package org.xbet.client1.apidata.common.api;
+
+import p353r.p393e.p394a.p395c.p396a.ServiceModule;
+
+/* compiled from: ConstApi.kt */
+public final class ConstApi {
+    public static final long BET_MARKET_REFRESH = 15;
+    public static final int COUNTRY_ID_MOZAMBIQUE = 121;
+    public static final int COUNTRY_ID_RUSSIA = 1;
+    public static final int COUNTRY_ID_SOUTH_KOREA = 215;
+    public static final String FOREGROUND_RECEIVER = "foreground_receiver";
+    public static final String GENERATE_FILE_PATH = "/sfiles/statistics";
+    public static final String GENERATE_PDF_COUPON = "PDFGeneratorService/GetPDFCouponForMobileWithHeaders";
+    public static final String GIF_URL = "/sfiles/statistics/football/";
+    public static final String HIGHLOAD_URL_PART = "/prophylaxis/highload.json";
+    public static final ConstApi INSTANCE = new ConstApi();
+    public static final long LINE_REFRESH = 60;
+    public static final long LIVE_REFRESH = 8;
+    public static final int PAYMENT_MOBILE_TYPE = 2;
+    public static final String PROPHYLAXIS_URL_PART = "/genfiles/cms/maintenance_mode/settings.json";
+    public static final String PROPHYLAXIS_URL_PART_TEST = "/genfiles/cms/maintenance_mode/settings-test.json";
+    public static final String REMOTE_CONFIG_ENDPOINT = "";
+    public static final long RETRY_DELAY = 8;
+    public static final long RETRY_DELAY_LONG = 16;
+    public static final int SMALL_GROUP_MODE = 2;
+    public static final String STATUS_JSON_URL_PART = "/status.json";
+    public static final String STORAGE_NAME = "xbet_dsaasdfaasdf";
+    public static final long SUBSCRIPTIONS_REFRESH = 30;
+    public static final String URL_SEARCH = "{eventType}Feed/Mb_SearchZip";
+    public static final String URL_STANDARD = "https://mob-experience.space";
+    public static final long WIDGET_REFRESH = 60;
+
+    /* compiled from: ConstApi.kt */
+    public static final class Api {
+        public static final Api INSTANCE = new Api();
+        public static final String PROMO_GET_BONUS = "/MobileSecureX/MobileCalcPointsBonus";
+        public static final String PROMO_SHOP_BUY = "/MobileSecureX/MobileBuyPromoShop";
+        public static final String URL_AUTH_USER_CALL_ADD = "/Account/v1/Mb/BackCall";
+        public static final String URL_GET_AVANCE_BET = "MobileLiveBetX/MobileGetAvanceX";
+        public static final String URL_GET_COURSE_OF_PLAY = "LiveFeed/Mb_GetCourseOfPlay";
+        public static final String URL_GET_FULL_STAT_BY_GAME = "/SiteService/StatByGameId2";
+        public static final String URL_GET_LIVE_FEED_SHORT_STAT = "/LiveFeed/Mb_GetGameTabloStatisticZip";
+        public static final String URL_GET_LIVE_FEED_STAT = "/LiveFeed/Mb_GetGameStatisticZip";
+        public static final String URL_GET_LIVE_RESULTS = "LiveFeed/Mb_GameResults";
+        public static final String URL_GET_LOCAL_TIME_DIFF = "/MobileOpen/GetUtcLocalTimeDiff";
+        public static final String URL_GET_MIRROR = "/get_mirror_mobi_list";
+        public static final String URL_GET_PLAYER_INFO = "SiteService/PlayerStatByObjectId";
+        public static final String URL_GET_PROMO_LIST = "/MobileOpen/Mobile_PromoShop_ListPromo2";
+        public static final String URL_GET_RATING_SHORT_TABLE = "/SiteService/StatShortRatingsInfoByTournId";
+        public static final String URL_GET_RATING_TABLE = "SiteService/StatRatingByGameId";
+        public static final String URL_GET_RATING_TABLE_BY_OBJECT = "SiteService/StatRatingByObjectId";
+        public static final String URL_GET_RESULTS = "MobileOpen/Mobile_GameResults";
+        public static final String URL_GET_STAT_BY_CHAMP = "LineFeed/Mb_GetStandingsGameZip";
+        public static final String URL_GET_STAT_BY_STAT_GAME = "/SiteService/StatByStatGameId2";
+        public static final String URL_GET_TEXT_BROADCAST = "/SiteService/TextBroadcastByGameId";
+        public static final String URL_GET_WEB_STAT = "/statistic/game_popup";
+        public static final String URL_MAKE_AUTO_BET = "MobileLiveBetX/MobileMakeBetBid";
+        public static final String URL_MAKE_NEW_BET = "MobileLiveBetX/MobileMakeBet";
+        public static final String URL_MAX_BET = "MobileLiveBetX/MobileMaxBet";
+        public static final String URL_REGISTER_FCM_TOKEN = "/MobileOpen/Mobile_android_addDevice";
+        public static final String URL_SEND_MIRROR_STATUS = "/SendCheckResult";
+        public static final String URL_UNAUTH_USER_CALL_ADD = "/Account/v1/BackCall";
+        public static final String URL_USER_CALL_DEL = "/Account/v1/Mb/BackCallDelete";
+        public static final String URL_USER_CALL_GET = "/Account/v1/Mb/GetUserCalls";
+        public static final String URL_ZONE_CONFIG = "getZone/web_nz/config.json";
+
+        private Api() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class BetMarket {
+        public static final BetMarket INSTANCE = new BetMarket();
+        public static final String START_PATH_NEW = "BetmarketMobile/";
+        public static final String URL_BILLING = "BetmarketMobile/mb_currentorders3";
+        public static final String URL_CANCEL_BET = "BetmarketMobile/mb_cancelorders3";
+        public static final String URL_CHAMPS = "BetmarketMobile/Mb_GetChampsZip";
+        public static final String URL_EDIT_BET = "BetmarketMobile/mb_updateorders3";
+        public static final String URL_GAMES = "BetmarketMobile/Mb_GetGamesZip";
+        public static final String URL_HISTORY_ANNULLED = "BetmarketMobile/mb_billingpvoid3";
+        public static final String URL_HISTORY_CALCULATED = "BetmarketMobile/mb_billingpcalc3";
+        public static final String URL_HISTORY_CANCELED = "BetmarketMobile/mb_billingpcanc3";
+        public static final String URL_HISTORY_CURRENT = "BetmarketMobile/mb_billingcu3";
+        public static final String URL_HISTORY_CURRENT_PAIR = "BetmarketMobile/mb_billingcm3";
+        public static final String URL_HISTORY_RETURNED = "BetmarketMobile/mb_billingpret3";
+        public static final String URL_MAKE_BET = "BetmarketMobile/mb_placeorders3";
+        public static final String URL_OPEN_DASHBOARD = "BetmarketMobile/mb_gamedashboard3";
+        public static final String URL_SPORTS = "BetmarketMobile/Mb_GetSportsZip";
+
+        private BetMarket() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Cashback {
+        public static final String CASHBACK_INFO_AUTH = "loyaltyservice/CashBackInfo_auth";
+        public static final String CASH_BACK_USER_INFO_AUTH = "loyaltyservice/GetCashbackUserInfo_auth";
+        public static final String GET_EXPERIENCE = "Loyalty/GetExperience_auth";
+        public static final String GET_LEVEL_INFO = "loyaltyservice/{cashbackid}/GetLevelInfo_auth_v2";
+        public static final String GET_SUMM_CASHBACK = "loyaltyservice/{cashbackid}/GetSummCashBack_auth_v2";
+        public static final Cashback INSTANCE = new Cashback();
+        public static final String PAYMENT_CASHBACK = "loyaltyservice/{cashbackid}/PaymentCashBack_auth_v2";
+
+        private Cashback() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class ChooseBonus {
+        private static final String GET_BONUS_AGREEMENTS_ICON = (ServiceModule.f14839c.mo20859b() + "/static/img/android/actions/agreements_bonus/");
+        private static final String GET_BONUS_ICON = (ServiceModule.f14839c.mo20859b() + "/static/img/android/actions/first_bonus_registration/");
+        public static final ChooseBonus INSTANCE = new ChooseBonus();
+
+        private ChooseBonus() {
+        }
+
+        public final String getGET_BONUS_AGREEMENTS_ICON() {
+            return GET_BONUS_AGREEMENTS_ICON;
+        }
+
+        public final String getGET_BONUS_ICON() {
+            return GET_BONUS_ICON;
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class ConstructorHub {
+        public static final String GET_EVENTS = "AlterSport/GetEvents";
+        public static final String GET_GAMES = "AlterSport/GetGames";
+        public static final ConstructorHub INSTANCE = new ConstructorHub();
+        public static final String MAKE_BET = "MobileLiveBetX/MobileMakeBetAlternative";
+        public static final String MAX_BET = "MobileLiveBetX/MobileMaxBetAlternative";
+
+        private ConstructorHub() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Coupon {
+        public static final String GENERATE_COUPON_DATA = "BetAdviser/GetBetAdvice";
+        public static final String GET_FILTERS = "BetAdviser/GetFilters";
+        public static final Coupon INSTANCE = new Coupon();
+        public static final String URL_EXPORT_COUPON_SAVE = "MobileLiveBet/Mobile_SaveCoupon";
+        public static final String URL_GET_COUPON_BY_ID = "/MobileOpen/Mobile_CheckCupon";
+
+        private Coupon() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Currency {
+        public static final String ADD_CURRENCY = "Account/v1/Mb/AddCurrency";
+        public static final String DELETE_CURRENCY = "Account/v1/Mb/DeleteCurrency";
+        public static final Currency INSTANCE = new Currency();
+
+        private Currency() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class CutCurrency {
+        public static final String GET_CUT_MB_CURRENCY = "MobileOpen/MbCurrency";
+        public static final CutCurrency INSTANCE = new CutCurrency();
+
+        private CutCurrency() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Dictionaries {
+        public static final String GET_CURRENCIES = "MobileOpen/Mobile_static_currency4";
+        public static final String GET_EVENTS = "MobileOpen/Mobile_vid_sobitiy_small2ZIP";
+        public static final String GET_EVENTS_GROUP = "MobileOpen/Mobile_vid_sobitiy_groups_small2";
+        public static final String GET_SPORTS = "MobileOpen/Mobile_sports";
+        public static final String GET_STRINGS = "/MobileOpen/GetMobileDict";
+        public static final Dictionaries INSTANCE = new Dictionaries();
+
+        private Dictionaries() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Favorites {
+        public static final String GET_FAVORITE_TEAMS = "MobileSecureX/MobileGetTeamFavorites";
+        public static final Favorites INSTANCE = new Favorites();
+        public static final String UPDATE_FAVORITE_TEAMS = "MobileSecureX/MobileUpdateTeamFavorites";
+
+        private Favorites() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class FinSecurity {
+        public static final FinSecurity INSTANCE = new FinSecurity();
+        public static final String URL_BLOCK_USER = "Account/v1/GamblingRisk/Block";
+        public static final String URL_GET_LIMITS = "Account/v1/GamblingRisk/Limits";
+        public static final String URL_SEND_ANSWERS = "Account/v1/GamblingRisk";
+
+        private FinSecurity() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Info {
+        public static final String GET_MAP = "/points/?app_mode=desktop";
+        public static final String GET_PAYMENT = "/paysystems/information/?type=2";
+        public static final Info INSTANCE = new Info();
+
+        private Info() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class MarketsStatistic {
+        public static final MarketsStatistic INSTANCE = new MarketsStatistic();
+        public static final String LINE_MARKETS_STATISTIC = "/LineFeed/Mb_GetHistoryGraph";
+        public static final String LIVE_MARKETS_STATISTIC = "/LiveFeed/Mb_GetHistoryGraphExt";
+
+        private MarketsStatistic() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Messages {
+        public static final String DEL_MESSAGE = "MesService/MobileAuth/MbDelMessageAuth";
+        public static final String GET_MESSAGES = "MesService/MobileAuth/MbGetMessagesAuth";
+        public static final String GET_MESSAGES_COUNT = "MesService/MobileAuth/MbGetCountMessagesNew";
+        public static final Messages INSTANCE = new Messages();
+        public static final String READ_MESSAGES = "MesService/MobileAuth/MbReadMessageAuth";
+
+        private Messages() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class OneMoreCashback {
+        public static final String CHOICE_CASHBACK = "/MobileSecureX/MobileChoiceCashback";
+        public static final String GET_PERCENT_BANNER = "/static/img/android/actions/cashback_percent/percent_banner_android.webp";
+        public static final String GET_PROMO_BANNER = "/static/img/android/actions/cashback_percent/promo_banner.webp";
+        public static final OneMoreCashback INSTANCE = new OneMoreCashback();
+
+        private OneMoreCashback() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Other {
+        private static final String GDPR_URL = (ServiceModule.f14839c.mo20859b() + "/static/gdpr/%d/info.pdf");
+        public static final Other INSTANCE = new Other();
+        public static final String LOG = "/log/Android";
+        public static final String REF_LOG = "/u/";
+
+        private Other() {
+        }
+
+        public final String getGDPR_URL() {
+            return GDPR_URL;
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class PopularSearch {
+        public static final String GET_POPULAR_CHAMP = "LineFeed/Mb_GetChampsZip";
+        public static final String GET_POPULAR_SEARCH = "/MobileOpen/GetAdvisedOpps";
+        public static final PopularSearch INSTANCE = new PopularSearch();
+
+        private PopularSearch() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Promo {
+        public static final Promo INSTANCE = new Promo();
+        public static final String PROMO_GET_LIST = "/MobileSecureX/MobileCheckPromoCode";
+        public static final String USE_PROMO_CODE = "/MobileP/UsePromocodeV2";
+
+        private Promo() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Sip {
+        public static final String GET_SIP_LANGUAGES = "RestCoreService/v1/mb/SipLanguages";
+        public static final Sip INSTANCE = new Sip();
+
+        private Sip() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Stocks {
+
+        /* compiled from: ConstApi.kt */
+        public static final class ACTIONS {
+            public static final String CHECK_USER_STATUS = "PromoServiceAuth/Mobile/Promo/StatusUserActionMobile";
+            public static final String CONFIRM_USER_IN_ACTION = "PromoServiceAuth/Mobile/Promo/ConfirmUserInActionMobile";
+            public static final String GET_TICKETS = "PromoServiceAuth/Promo/GetActionUserTickets";
+            public static final String GET_USER_CITY = "PromoServiceAuth/1xBetKZAutoBoom/GetUserCity";
+            public static final String GET_WIN_TABLE = "PromoServiceAuth/Promo/GetWinTableByFilter";
+            public static final ACTIONS INSTANCE = new ACTIONS();
+            public static final String SET_USER_CITY = "PromoServiceAuth/1xBetKZAutoBoom/SetUserCity";
+
+            private ACTIONS() {
+            }
+        }
+
+        /* compiled from: ConstApi.kt */
+        public static final class DAILY {
+            private static final String DAILY_TOURNAMENT_URL = (ServiceModule.f14839c.mo20859b() + "/static/img/android/actions/everydayTournament/DT.png");
+            public static final DAILY INSTANCE = new DAILY();
+
+            private DAILY() {
+            }
+
+            public final String getDAILY_TOURNAMENT_URL() {
+                return DAILY_TOURNAMENT_URL;
+            }
+        }
+
+        /* compiled from: ConstApi.kt */
+        public static final class MATCHES {
+            public static final String GET_MATCHES = "PromoServiceAuth/Mobile/GoallessFootball/GetMatchesByActionMobileDuplicate";
+            public static final MATCHES INSTANCE = new MATCHES();
+
+            private MATCHES() {
+            }
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Subscriptions {
+        public static final String DELETE_GAMES = "/subscriptionservice/api/v2/subs/DeleteGamesSubscriptions";
+        public static final String GAME_SUBSCRIPTION_SETTINGS = "/subscriptionservice/api/v2/subs/GetGameSubscriptionSettings";
+        public static final Subscriptions INSTANCE = new Subscriptions();
+        public static final String SAVE_USER_REACTION = "/subscriptionservice/api/v2/subs/SaveUserReaction";
+        public static final String SPORT_SUBSCRIPTIONS = "/subscriptionservice/api/v2/info/GetGameSubscriptionOptions";
+        public static final String SUBSCRIBE_GAME = "/subscriptionservice/api/v2/subs/AddGameSubscription";
+        public static final String SUBSCRIBE_ON_BET_RESULT = "/subscriptionservice/api/v2/subs/AddBetSubscription";
+        private static final String SUBSCRIPTIONS_BASE_URL = "/subscriptionservice/api/v2";
+        public static final String UPDATE_USER_DATA = "/subscriptionservice/api/v2/subs/UpdateUserData";
+        public static final String USER_SUBSCRIPTIONS = "/subscriptionservice/api/v2/subs/GetGameSubscriptions";
+
+        private Subscriptions() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Toto {
+        public static final Toto INSTANCE = new Toto();
+        public static final String TOTO_LIMITS = "MobileOpen/GetTotoLimits";
+        public static final String URL_TOTO_1XTOTO_NEW = "MobileOpen/Mobile_totoFR_GetFormaTirag";
+        public static final String URL_TOTO_ACCURACY_NEW = "MobileOpen/Mobile_total_GetFormaTirag3";
+        public static final String URL_TOTO_BASKETBALL_NEW = "MobileOpen/Mobile_totoB_GetFormaTirag2";
+        public static final String URL_TOTO_BET_1X_TOTO = "MobileSecureX/MobileTotoFRSetCoupon";
+        public static final String URL_TOTO_BET_BASKETBALL = "MobileSecureX/MobileTotoBSetCoupon2";
+        public static final String URL_TOTO_BET_CORRECT = "MobileSecureX/MobileTotoTSSetCoupon2";
+        public static final String URL_TOTO_BET_CYBER_FOOTBALL = "MobileSecureX/MobileTotoCFSetCoupon2";
+        public static final String URL_TOTO_BET_FIFTEEN = "MobileSecureX/MobileTotoSetCoupon2";
+        public static final String URL_TOTO_BET_FOOTBALL = "MobileSecureX/MobileTotoFSetCoupon2";
+        public static final String URL_TOTO_BET_HOCKEY = "MobileSecureX/MobileTotoXSetCoupon2";
+        public static final String URL_TOTO_CYBER_FOOTBALL_NEW = "MobileOpen/Mobile_totoCF_GetFormaTirag2";
+        public static final String URL_TOTO_FIFTEEN_NEW = "MobileOpen/Mobile_toto_GetFormaTiragLight2";
+        public static final String URL_TOTO_FOOTBALL_NEW = "MobileOpen/Mobile_toto14_GetFormaTirag3";
+        public static final String URL_TOTO_HOCKEY_NEW = "MobileOpen/Mobile_totoX_GetFormaTirag3";
+
+        private Toto() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class TotoHistory {
+        public static final TotoHistory INSTANCE = new TotoHistory();
+        public static final String URL_TOTO_1XTOTO_HISTORY = "MobileOpen/Mobile_totoFR_GetListTirags?vers=3&page=0";
+        public static final String URL_TOTO_ACCURACY_HISTORY = "MobileOpen/Mobile_web_total_GetListTirags?vers=3&page=0";
+        public static final String URL_TOTO_BASKETBALL_HISTORY = "MobileOpen/Mobile_web_totoB_GetListTirags2?vers=3&page=0";
+        public static final String URL_TOTO_CYBER_FOOTBAL_HISTORY = "MobileOpen/Mobile_web_totoCF_GetListTirags?vers=3&page=0";
+        public static final String URL_TOTO_FIFTEEN_HISTORY = "MobileOpen/Mobile_web_toto_GetListTirags?vers=3&page=0";
+        public static final String URL_TOTO_FOOTBALL_HISTORY = "MobileOpen/Mobile_web_toto14_GetListTirags?vers=3&page=0";
+        public static final String URL_TOTO_HOCKEY_HISTORY = "MobileOpen/Mobile_web_totoX_GetListTirags?vers=3&page=0";
+
+        private TotoHistory() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class User {
+        public static final String CHECK_BLOCK = "LongCache/CheckBlock";
+        public static final String GEO_DATA_FULL = "/MobileOpen/Mobile_geocityFull";
+        public static final String GET_ALLOWED_COUNTRIES = "MobileOpen/MbAllowedCountries";
+        public static final String GET_PHONE_MASK = "Account/v1/GetPhoneMasks";
+        public static final User INSTANCE = new User();
+        public static final String USER_SETTINGS = "Account/v1/Mb/UserSetting";
+
+        private User() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class VipClub {
+        public static final String BACKGROUND_URL = "/static/img/android/games/promos/vipclub/background.png";
+        public static final VipClub INSTANCE = new VipClub();
+
+        private VipClub() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Warning {
+        public static final String CONFIRM_RULES = "/UserAuth/ConfirmRules";
+        public static final String GET_UNCONFIRMED_RULES = "UserAuth/GetUnconfirmedRules";
+        public static final String GET_WARNING = "/UserAuth/GetWarning";
+        public static final Warning INSTANCE = new Warning();
+        public static final String SEND_CHOICE = "/UserAuth/SetWarningChoice";
+
+        private Warning() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class WebUrl {
+        public static final WebUrl INSTANCE = new WebUrl();
+        public static final String URL_GET_STADIUM_IMG = "%s/sfiles/stadium/%s";
+        public static final String URL_GET_TEAM_ICON = "%s/playerlogo/%d.png";
+        public static final String URL_GET_TEAM_ICON_NEW = "%s/playerlogo/%s";
+        public static final String URL_GET_VIDEO_IP = "cinema";
+
+        private WebUrl() {
+        }
+    }
+
+    /* compiled from: ConstApi.kt */
+    public static final class Zip {
+        public static final Zip INSTANCE = new Zip();
+        public static final String URL_BEST_GAMES_ZIP = "{BetType}Feed/Mb_BestGamesExtZip";
+        public static final String URL_CHAMPS_ZIP = "{BetType}Feed/Mb_GetChampsZip";
+        public static final String URL_DAY_EXPRESS_ZIP_LINE = "LineFeed/Mb_GetExpressDayExtendedZip";
+        public static final String URL_DAY_EXPRESS_ZIP_LIVE = "LiveFeed/Mb_GetLiveExpressExtendedZip";
+        public static final String URL_FAVORITES_ZIP = "{BetType}Feed/Mb_GetFavoritesPostZip";
+        public static final String URL_FAVORITE_TEAMS = "{BetType}Feed/Mb_GetGamesTeamPostZip";
+        public static final String URL_FIND_LIVE_GAME = "RefGameService/FindMainLiveRefGameByLineGameId";
+        public static final String URL_FIND_REF_GAMES = "RefGameService/FindRefGamesByGameId";
+        public static final String URL_GAMES_ZIP = "{BetType}Feed/Mb_GetGamesZip";
+        public static final String URL_GAME_REVIEV = "SiteService/EventsByGameId";
+        public static final String URL_GAME_STADIUM = "SiteService/GetStadiumForGame_2";
+        public static final String URL_GAME_ZIP = "{BetType}Feed/Mb_GetEventsZip";
+        public static final String URL_LIVE_RELATED_FEED = "LiveFeed/EndGameAdvice";
+        public static final String URL_SPORTS_ZIP = "{BetType}Feed/Mb_GetSportsZip";
+
+        private Zip() {
+        }
+    }
+
+    private ConstApi() {
+    }
+}
+
+
