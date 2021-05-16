@@ -71,8 +71,8 @@ try {
             axios.get("https://v1.mirrorstream.xyz/hls365.php?id=" + param + "&mode=sources")
               .then((r) => {
 
-                // playHls(r.data, false);
-                playNormal('https://live.livestreamapi.xyz/playlist.php?VI=' + r.data);
+                playHls(r.data, true);
+                // playNormal('https://live.livestreamapi.xyz/playlist.php?VI=' + r.data);
                 // playNormal('https://edge2.xmediaget.com:8443/edge0/xrecord/' + r.data + '/prog_index.m3u8')
                 // playNormal('https://cdn.livestreamapi.xyz/playlist.php?streamid=' + r.data)
               })
@@ -135,7 +135,9 @@ let adsConfig = {
 };
 
 function playHls(id, bypass) {
-  var url = (bypass == true) ? "https://cors.bridged.cc/" + webconfig.endpoint : webconfig.endpoint;
+
+  var corsbypass = 'https://cors.livestreamapi.xyz/'
+  var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
 
   console.log(url)
   axios({
@@ -144,7 +146,7 @@ function playHls(id, bypass) {
     data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
   })
     .then((response) => {
-      playNormal((bypass == true) ? "https://cors.bridged.cc/" + response.data.URL : response.data.URL)
+      playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
     }, (error) => {
       console.log(error);
     });

@@ -1,12 +1,9 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
+
+//header("Access-Control-Allow-Origin: *");
 header("content-type: application/vnd.apple.mpegurl");
-//header("Content-Disposition: attachment; filename=playlist_".$_GET['streamid'].".m3u8");
-$str = "https://edge2.xmediaget.com:8443/xrecord?id=" . $_GET['streamid'];
-$get_url_for_parsing = substr(file_get_contents($str), 3);
-$edgelinknum = substr($get_url_for_parsing, 1, 5);
-$str = "https://edge3.xmediaget.com:8443" . $get_url_for_parsing;
+//header("Content-Disposition: attachment; filename=playlist_".$_GET['VI'].".m3u8");
+$str = "http://edge2.xmediaget.com/edge0/xrecord/" . $_GET['VI'] . "/prog_index.m3u8";
 $lines = file($str);
 $last1 = implode(array_slice($lines, -2, 1));
 $last2 = implode(array_slice($lines, -4, 1));
@@ -20,12 +17,9 @@ echo "#EXTM3U
 #EXT-X-MEDIA-SEQUENCE:" . $numseq . "
 #EXT-X-DISCONTINUITY-SEQUENCE:0
 ";
-echo '#EXTINF:4,
-';
-echo 'https://edge3.xmediaget.com:8443/' . $edgelinknum . '/xrecord/' . $_GET['streamid'] . '/' . $last3 . '';
-echo '#EXTINF:4,
-';
-echo 'https://edge3.xmediaget.com:8443/' . $edgelinknum . '/xrecord/' . $_GET['streamid'] . '/' . $last2 . '';
-echo '#EXTINF:4,
-';
-echo 'https://edge3.xmediaget.com:8443/' . $edgelinknum . '/xrecord/' . $_GET['streamid'] . '/' . $last1 . '';
+echo "#EXTINF:4,\n";
+echo 'http://edge2.xmediaget.com/edge0/xrecord/' . $_GET['VI'] . '/' . $last3 . '';
+echo "#EXTINF:4,\n";
+echo 'http://edge2.xmediaget.com/edge0/xrecord/' . $_GET['VI'] . '/' . $last2 . '';
+echo "#EXTINF:4,\n";
+echo 'http://edge2.xmediaget.com/edge0/xrecord/' . $_GET['VI'] . '/' . $last1 . '';
