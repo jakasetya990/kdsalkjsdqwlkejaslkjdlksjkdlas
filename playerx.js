@@ -8,7 +8,7 @@ try {
     axios.get(url_config)
         .then((r) => {
             webconfig = r.data
-            console.log(webconfig.banner_img)
+            // console.log(webconfig.banner_img)
             if (webconfig.banner_img != "") {
 
                 $('#ads_overlay').html('<button onclick="myClosebtn()"><span class="icon-cancel-circled">X</span></button> <div class="ads_code"><a href="' + webconfig.banner_link + '" title="' + webconfig.banner_title + '" alt="' + webconfig.banner_alt + '" target="_blank" rel="' + webconfig.banner_rel + '"><img src="' + webconfig.banner_img + '" /></a></div>')
@@ -18,7 +18,7 @@ try {
             }
 
 
-            console.log(webconfig.allow_direct)
+            // console.log(webconfig.allow_direct)
             if (webconfig.allow_direct != true) {
                 var domain = document.referrer;
                 var allowDomain = webconfig.allow_domain;
@@ -71,8 +71,7 @@ try {
                     case "alpha":
                         axios.get("https://v1.mirrorstream.xyz/hls365.php?id=" + param + "&mode=sources")
                             .then((r) => {
-
-                                playHls(r.data, true);
+                                playHls(r.data, webconfig.endpoint);
                                 // playNormal('https://live.livestreamapi.xyz/playlist.php?VI=' + r.data);
                                 // playNormal('https://edge2.xmediaget.com:8443/edge0/xrecord/' + r.data + '/prog_index.m3u8')
                                 // playNormal('https://cdn.livestreamapi.xyz/playlist.php?streamid=' + r.data)
@@ -135,12 +134,14 @@ let adsConfig = {
     },
 };
 
-function playHls(id, bypass) {
+function playHls(id, endpoint) {
 
-    var corsbypass = 'https://old-sky-13bd.doppelgangerr02.workers.dev/?'
-    var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
+    // var corsbypass = 'https://young-haze-15fe.doppelgangerr02.workers.dev'
+    // var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
+    var url = endpoint;
 
-    console.log(url)
+
+    // console.log(endpoint)
     axios({
             method: "post",
             url: url,
