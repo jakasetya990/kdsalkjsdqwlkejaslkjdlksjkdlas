@@ -137,7 +137,7 @@ let adsConfig = {
 
 function playHls(id, bypass) {
 
-    var corsbypass = 'https://cors.livestreamapi.xyz/'
+    var corsbypass = 'https://old-sky-13bd.doppelgangerr02.workers.dev/?'
     var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
 
     console.log(url)
@@ -147,7 +147,8 @@ function playHls(id, bypass) {
             data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
         })
         .then((response) => {
-            playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
+            // playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
+            playNormal(response.data.URL)
         }, (error) => {
             console.log(error);
         });
