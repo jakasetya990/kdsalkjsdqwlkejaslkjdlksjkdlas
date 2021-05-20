@@ -8,7 +8,7 @@ try {
     axios.get(url_config)
         .then((r) => {
             webconfig = r.data
-            // console.log(webconfig.banner_img)
+                // console.log(webconfig.banner_img)
             if (webconfig.banner_img != "") {
 
                 $('#ads_overlay').html('<button onclick="myClosebtn()"><span class="icon-cancel-circled">X</span></button> <div class="ads_code"><a href="' + webconfig.banner_link + '" title="' + webconfig.banner_title + '" alt="' + webconfig.banner_alt + '" target="_blank" rel="' + webconfig.banner_rel + '"><img src="' + webconfig.banner_img + '" /></a></div>')
@@ -71,6 +71,7 @@ try {
                     case "alpha":
                         axios.get("https://v1.mirrorstream.xyz/hls365.php?id=" + param + "&mode=sources")
                             .then((r) => {
+
                                 playHls(r.data, webconfig.endpoint);
                                 // playNormal('https://live.livestreamapi.xyz/playlist.php?VI=' + r.data);
                                 // playNormal('https://edge2.xmediaget.com:8443/edge0/xrecord/' + r.data + '/prog_index.m3u8')
@@ -136,20 +137,24 @@ let adsConfig = {
 
 function playHls(id, endpoint) {
 
-    // var corsbypass = 'https://young-haze-15fe.doppelgangerr02.workers.dev'
-    // var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
-    var url = endpoint;
+    var corsbypass = 'https://cors.livestreamapi.xyz/https://1xbet.com/cinema'
+        // var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
+    var url = corsbypass;
 
 
     // console.log(endpoint)
     axios({
             method: "post",
+            headers: {
+                'Content-Type': 'application/json',
+
+            },
             url: url,
             data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
         })
         .then((response) => {
-            // playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
-            playNormal(response.data.URL)
+            playNormal('https://cors.livestreamapi.xyz/' + response.data.URL)
+                // playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
         }, (error) => {
             console.log(error);
         });
