@@ -137,9 +137,11 @@ let adsConfig = {
 
 function playHls(id, endpoint) {
 
-    var corsbypass = 'https://cors.livestreamapi.xyz/https://1xbet.com/cinema'
-        // var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
-    var url = corsbypass;
+    // var corsbypass = 'https://cors.livestreamapi.xyz/https://1xbet.com/cinema'
+    // var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
+    var corsbypass = "https://playstreamx.herokuapp.com/"
+    // var corsbypass = "https://cors.livestreamapi.xyz/"
+    var url = corsbypass + "https://1xbet.com/cinema";
 
 
     // console.log(endpoint)
@@ -147,13 +149,15 @@ function playHls(id, endpoint) {
             method: "post",
             headers: {
                 'Content-Type': 'application/json',
+                "Referrer-Policy": "origin"
 
             },
             url: url,
             data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
         })
         .then((response) => {
-            playNormal('https://cors.livestreamapi.xyz/' + response.data.URL)
+            playNormal(corsbypass + response.data.URL)
+                // playNormal('https://cors.livestreamapi.xyz/' + response.data.URL)
                 // playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
         }, (error) => {
             console.log(error);
