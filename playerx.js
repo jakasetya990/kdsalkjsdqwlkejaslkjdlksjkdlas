@@ -145,27 +145,42 @@ function playHls(id, webconfig) {
     // var endpointx = "https://1xbet.com/cinema"
 
     var url = webconfig.endpoint;
-    axios({
-            method: "post",
-            headers: {
-                'Content-Type': 'application/json',
-                "Referrer-Policy": "origin",
-                'Origin': "https://1xbet.com"
+    $.ajax({
+        cache: true,
+        async: false,
+        type: 'POST',
+        url: webconfig.endpoint,
+        data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
+        dataType: 'json',
+        success: function(data) {
 
-            },
-            url: url,
-            data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
-        })
-        .then((response) => {
-            playNormal(webconfig.corsbypass + response.data.URL)
+            playNormal(webconfig.corsbypass + data.URL)
+        }
+    });
 
-            // playNormal('https://cors.livestreamapi.xyz/' + response.data.URL)
-            // playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
-        }, (error) => {
-            console.log(error);
-        });
 
-    axios.post()
+
+    // axios({
+    //         method: "post",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             "Referrer-Policy": "origin",
+    //             'Origin': "https://1xbet.com"
+
+    //         },
+    //         url: url,
+    //         data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
+    //     })
+    //     .then((response) => {
+    //         playNormal(webconfig.corsbypass + response.data.URL)
+
+    //         // playNormal('https://cors.livestreamapi.xyz/' + response.data.URL)
+    //         // playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
+    //     }, (error) => {
+    //         console.log(error);
+    //     });
+
+    // axios.post()
 
 
 
