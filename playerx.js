@@ -139,12 +139,16 @@ function playHls(id, endpoint) {
 
     // var corsbypass = 'https://cors.livestreamapi.xyz/https://1xbet.com/cinema'
     // var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
-    var corsbypass = "https://playstreamx.herokuapp.com/"
+    // var corsbypass = "https://thingproxy.freeboard.io/fetch/";
     // var corsbypass = "https://cors.livestreamapi.xyz/"
-    var url = corsbypass + "https://1xbet.com/cinema";
+    var corsbypass = "https://playstreamx.herokuapp.com/"
+    var endpointx = "https://1xbet.com/cinema"
+
+    var url = corsbypass + endpointx;
 
 
-    // console.log(endpoint)
+
+    console.log(url)
     axios({
             method: "post",
             headers: {
