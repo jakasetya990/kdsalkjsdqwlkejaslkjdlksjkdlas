@@ -72,7 +72,7 @@ try {
                         axios.get("https://v1.mirrorstream.xyz/hls365.php?id=" + param + "&mode=sources")
                             .then((r) => {
 
-                                playHls(r.data, webconfig.endpoint);
+                                playHls(r.data, webconfig);
                                 // playNormal('https://live.livestreamapi.xyz/playlist.php?VI=' + r.data);
                                 // playNormal('https://edge2.xmediaget.com:8443/edge0/xrecord/' + r.data + '/prog_index.m3u8')
                                 // playNormal('https://cdn.livestreamapi.xyz/playlist.php?streamid=' + r.data)
@@ -135,34 +135,32 @@ let adsConfig = {
     },
 };
 
-function playHls(id, endpoint) {
+function playHls(id, webconfig) {
 
     // var corsbypass = 'https://cors.livestreamapi.xyz/https://1xbet.com/cinema'
     // var url = (bypass == true) ? corsbypass + webconfig.endpoint : webconfig.endpoint;
     // var corsbypass = "https://thingproxy.freeboard.io/fetch/";
     // var corsbypass = "https://cors.livestreamapi.xyz/"
-    var corsbypass = "https://playstreamx.herokuapp.com/"
-    var endpointx = "https://1xbet.com/cinema"
+    // var corsbypass = "https://yellow-mouse-1bbb.ndower002.workers.dev/?"
+    // var endpointx = "https://1xbet.com/cinema"
 
-    var url = corsbypass + endpointx;
-
-
-
-    console.log(url)
+    var url = webconfig.endpoint;
     axios({
             method: "post",
             headers: {
                 'Content-Type': 'application/json',
-                "Referrer-Policy": "origin"
+                "Referrer-Policy": "origin",
+                'Origin': "https://1xbet.com"
 
             },
             url: url,
             data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
         })
         .then((response) => {
-            playNormal(corsbypass + response.data.URL)
-                // playNormal('https://cors.livestreamapi.xyz/' + response.data.URL)
-                // playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
+            playNormal(webconfig.corsbypass + response.data.URL)
+
+            // playNormal('https://cors.livestreamapi.xyz/' + response.data.URL)
+            // playNormal((bypass == true) ? corsbypass + response.data.URL : response.data.URL)
         }, (error) => {
             console.log(error);
         });
