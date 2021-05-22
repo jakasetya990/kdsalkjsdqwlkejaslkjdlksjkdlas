@@ -1,7 +1,7 @@
 // log on 05152021
 var referer = document.referrer;
 var url_config = "https://cdn.livestreamapi.xyz/getconfig.php?domain=" + domain;
-var webconfig, player;
+var webconfig, player, streamdata;
 
 
 try {
@@ -82,22 +82,40 @@ try {
                             });
                         break;
                     case "beta":
-                        axios
-                            .get(
-                                "https://apk150.xyz/sportpanel/json/bigmatch/details/" +
-                                param +
-                                "?clear=1"
-                            )
-                            .then((r) => {
-                                if (r.data.sources[0].type == "iframe") {
-                                    playIframe(r.data.sources[0].value);
+                        $.ajax({
+                            cache: true,
+                            async: false,
+                            type: 'get',
+                            url: "https://cors.livestreamapi.xyz/https://apk150.xyz/streamdata/" + param + ".json",
+
+                            dataType: 'json',
+                            success: function(data) {
+
+                                streamdata = data.sources;
+                                // console.log(streamdata)
+                                    // check if iframe
+                                if (streamdata[0].type == "iframe") {
+                                    playIframe(streamdata[0].source);
                                 } else {
-                                    playNormal(r.data.sources[0].value);
+                                    playNormal(streamdata[0].source);
                                 }
-                            })
-                            .catch((e) => {
-                                console.log(e);
-                            });
+
+
+                            }
+                        });
+
+                        // axios
+                        //     .get("https://cors.livestreamapi.xyz/https://apk150.xyz/streamdata/" + param + ".json")
+                        //     .then((r) => {
+                        //         if (r.data.sources[0].type == "iframe") {
+                        //             playIframe(r.data.sources[0].value);
+                        //         } else {
+                        //             playNormal(r.data.sources[0].value);
+                        //         }
+                        //     })
+                        //     .catch((e) => {
+                        //         console.log(e);
+                        //     });
                         break;
 
                     default:
@@ -198,6 +216,7 @@ function playIframe(iframesource) {
 }
 
 function playNormal(sourcex) {
+    console.log(sourcex)
     if (sourcex.includes(".flv")) {
         console.log("itsflv");
         playFlv(sourcex);
