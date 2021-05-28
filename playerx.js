@@ -93,7 +93,7 @@ try {
 
                                 streamdata = data.sources;
                                 // console.log(streamdata)
-                                    // check if iframe
+                                // check if iframe
                                 if (streamdata[0].type == "iframe") {
                                     playIframe(streamdata[0].source);
                                 } else {
@@ -171,8 +171,15 @@ function playHls(id, webconfig) {
         data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
         dataType: 'json',
         success: function(data) {
+            //  check if its ads
+            if (data.URL.includes("/5334773/")) {
+                $('#player').html('<img style="width:100%;height:100%;" src="https://1.bp.blogspot.com/-PxISSU0DACw/YLEGxLTD65I/AAAAAAAAN7M/k4nmGcHvrUYumtiqytUOuKldk-e-BtuDgCLcBGAsYHQ/s0/progress.gif" class="offline-stream">')
 
-            playNormal(webconfig.corsbypass + data.URL)
+            } else {
+                playNormal(webconfig.corsbypass + data.URL)
+
+            }
+
         }
     });
 
