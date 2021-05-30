@@ -90,6 +90,23 @@ try {
                                 console.log(e);
                             });
                         break;
+
+                    case "delta":
+                        axios.get(webconfig.corsbypass + "https://api.mirrorstream.xyz/delta/json/" + param + ".json")
+                            .then((r) => {
+
+                                playHls(r.data.videoHls, webconfig);
+                                // playNormal('https://live.livestreamapi.xyz/playlist.php?VI=' + r.data);
+                                // playNormal('https://edge2.xmediaget.com:8443/edge0/xrecord/' + r.data + '/prog_index.m3u8')
+                                // playNormal('https://cdn.livestreamapi.xyz/playlist.php?streamid=' + r.data)
+                            })
+                            .catch((e) => {
+                                console.log(e);
+                            });
+
+
+                        break;
+
                     case "beta":
                         $.ajax({
                             cache: true,
