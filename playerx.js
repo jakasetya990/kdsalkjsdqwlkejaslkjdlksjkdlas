@@ -81,6 +81,15 @@ try {
                                 console.log(e);
                             });
                         break;
+                    case "charlie":
+                        axios.get(webconfig.corsbypass + "https://api.mirrorstream.xyz/charlie/json/" + param + ".json")
+                            .then((r) => {
+                                playNormal(r.data.videoHls)
+                            })
+                            .catch((e) => {
+                                console.log(e);
+                            });
+                        break;
                     case "beta":
                         $.ajax({
                             cache: true,
