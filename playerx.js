@@ -84,7 +84,8 @@ try {
                     case "charlie":
                         axios.get(webconfig.corsbypass + "https://api.mirrorstream.xyz/charlie/json/" + param + ".json")
                             .then((r) => {
-                                playNormal(r.data.videoHls)
+                                playIframe(r.data.videoIframe)
+                                    // playNormal(r.data.videoHls)
                             })
                             .catch((e) => {
                                 console.log(e);
@@ -249,7 +250,7 @@ function playIframe(iframesource) {
 }
 
 function playNormal(sourcex) {
-    console.log(sourcex)
+    // console.log(sourcex)
     if (sourcex.includes(".flv")) {
         console.log("itsflv");
         playFlv(sourcex);
