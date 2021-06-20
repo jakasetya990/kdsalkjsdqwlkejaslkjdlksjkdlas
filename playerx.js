@@ -84,8 +84,9 @@ try {
                     case "charlie":
                         axios.get(webconfig.corsbypass + "https://api.mirrorstream.xyz/charlie/json/" + param + ".json")
                             .then((r) => {
-                                playIframe(r.data.videoIframe)
-                                    // playNormal(r.data.videoHls)
+                                // alert('adasd');
+                                // playIframe(r.data.videoIframe)
+                                playNormal(r.data.videoHls)
                             })
                             .catch((e) => {
                                 console.log(e);
@@ -195,7 +196,9 @@ function playHls(id, webconfig) {
         async: false,
         type: 'POST',
         url: webconfig.endpoint,
-        data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
+        // data: '{"VideoId":"' + id + '","Token":null,"AppId":2,"OS":"","AppVer":"","Language":"ru","Record":false}',
+        data: '{"VideoId":"' + id + '","Token":"","Language":"en","AppId":101,"AppVer":1064}',
+        // data: '{"VideoId":"5737790","Token":"","Language":"en","AppId":101,"AppVer":1064}',
         dataType: 'json',
         success: function(data) {
             //  check if its ads
