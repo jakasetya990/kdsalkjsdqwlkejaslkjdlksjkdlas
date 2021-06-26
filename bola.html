@@ -5,26 +5,30 @@
 <script src="https://cdn.jsdelivr.net/npm/flv.js@latest/dist/flv.min.js"></script>
 <script src="https://cdn.statically.io/gh/andrefilimono/clappr-flvjs-playback/377bd2be/dist/clappr-flvjs-playback.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+<script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+<!-- <script src="/assets/videojs-contrib-hls.min.js"></script> -->
+<script src="/assets/videojs-http-streaming.min.js"></script>
+<link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
 
 <style>
     * {
         margin: 0;
         padding: 0;
     }
-    
+
     body {
         background: none repeat scroll 0 0 #000;
         margin: 0;
     }
-    
+
     .container {
         position: relative;
         overflow: hidden;
         width: 100%;
         padding-top: 56.25%;
     }
-    
+
     .responsive-iframe {
         position: absolute;
         top: 0;
@@ -34,21 +38,21 @@
         width: 100%;
         height: 100%;
     }
-    
+
     .ads_code {
         width: fit-content;
         margin: 10px auto;
         z-index: 1001;
     }
-    
+
     .ads_code>a>img {
         width: 100%;
     }
-    
+
     span.icon-cancel-circled:hover {
         color: red;
     }
-    
+
     span.icon-cancel-circled {
         background: rgba(34, 34, 34, 0.62);
         color: #fff;
@@ -62,35 +66,35 @@
         margin: auto;
         font-weight: bolder;
     }
-    
+
     span.icon-cancel-circled:before {
         content: " ";
         display: block;
         background-color: #fff;
     }
-    
+
     #ads_overlay {
         position: absolute;
         width: 100%;
         bottom: 50px;
     }
-    
+
     #ads_overlay .btn-paused {
         display: none !important;
     }
-    
+
     #ads_overlay {
         position: absolute;
         width: 100%;
         bottom: 50px;
     }
-    
+
     #ads_overlay {
         position: absolute;
         width: 100%;
         bottom: 50px;
     }
-    
+
     #ads_overlay button {
         border: none;
         position: relative;

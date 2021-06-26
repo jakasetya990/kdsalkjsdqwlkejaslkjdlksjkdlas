@@ -82,11 +82,16 @@ try {
                             });
                         break;
                     case "charlie":
+
                         axios.get(webconfig.corsbypass + "https://api.mirrorstream.xyz/charlie/json/" + param + ".json")
                             .then((r) => {
-                                // alert('adasd');
-                                // playIframe(r.data.videoIframe)
-                                playNormal(r.data.videoHls)
+                                $('#player').html('<video id="example-video" class="video-js vjs-default-skin " data-setup=\'{"fluid": true,"autoplay":true,"muted":true}\'controls><source src="' + r.data.videoHls + '" type="application/x-mpegURL"></video>');
+                                playNormalVideoJs(r.data.videoHls);
+                                // playNormal(r.data.videoHls);
+                                // let xxx = r.data.videoUrl.split('/live/');
+                                // let param1 = "https://streaming.yourstreamer.xyz/https://ahoy.yourstreamer.xyz/web/" + '_' + btoa(xxx[0]) + '_/live/' + xxx[1];
+
+                                // playNormal(param1)
                             })
                             .catch((e) => {
                                 console.log(e);
@@ -165,6 +170,13 @@ try {
 
 // });
 
+
+function playNormalVideoJs(source) {
+    var player = videojs('example-video', {
+
+    });
+    player.play();
+}
 
 
 
