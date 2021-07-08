@@ -85,7 +85,7 @@ try {
 
                         axios.get(webconfig.corsbypass + "https://api.mirrorstream.xyz/charlie/json/" + param + ".json")
                             .then((r) => {
-                                $('#player').html('<video id="example-video" class="video-js vjs-default-skin " data-setup=\'{"fluid": true,"autoplay":true,"muted":true}\'controls><source src="' + r.data.videoHls + '" type="application/x-mpegURL"></video>');
+                                $('#player').html('<video id="example-video" class="video-js vjs-default-skin " data-setup=\'{"fluid": true,"autoplay":true,"muted":true}\'controls><source src="' + webconfig.corsbypass + r.data.videoHls + '" type="application/x-mpegURL"></video>');
                                 playNormalVideoJs(r.data.videoHls);
                                 // playNormal(r.data.videoHls);
                                 // let xxx = r.data.videoUrl.split('/live/');
@@ -316,7 +316,7 @@ function playFlv(sourcex) {
         autoPlay: true,
         mute: true,
         source: sourcex,
-        poster: webconfig.poster,
+        poster: webconfig.player_poster,
         mimeType: "video/flv",
 
         watermark: webconfig.player_watermark,
