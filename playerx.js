@@ -119,7 +119,7 @@ try {
                             cache: true,
                             async: false,
                             type: 'get',
-                            url: "https://cors.livestreamapi.xyz/https://apk150.xyz/streamdata/" + param + ".json",
+                            url: "https://falling-brook-eec9.doppelgangerr02.workers.dev/?https://apk150.xyz/streamdata/" + param + ".json",
 
                             dataType: 'json',
                             success: function(data) {
