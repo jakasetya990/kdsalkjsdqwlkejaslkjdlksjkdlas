@@ -1,6 +1,6 @@
 // log on 05152021
 var referer = document.referrer;
-var url_config = "https://cdn.livestreamapi.xyz/getconfig.php?domain=" + domain;
+var url_config = "https://falling-brook-eec9.doppelgangerr02.workers.dev/?https://cdn.livestreamapi.xyz/getconfig.php?domain=" + domain;
 var webconfig, player, streamdata;
 
 
